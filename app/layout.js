@@ -1,15 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Create Next App",
@@ -19,10 +8,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/rgm1dlw.css" />
+      </head>
+      <body className="font-[sofia-pro,_sans-serif] font-medium not-italic text-slate-100/70 antialiased">
+        <div className="flex min-h-screen flex-col space-y-4 bg-gradient-to-b from-[rgba(12,12,39,0.83)] to-[rgb(0,2,8)]">
+          <Header />
+          <Main>{children}</Main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
