@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { mobileNavItems } from "../../../lib/mobileNavItems";
 
@@ -11,13 +11,17 @@ export default function Navbar() {
   const [focused, setFocused] = React.useState(null);
 
   return (
-    <nav className="nav-container lg:flex lg:flex-grow lg:justify-center">
-      <ul className="nav-wrapper">
+    <motion.nav
+      onPointerLeave={() => setFocused(null)}
+      className="nav-container lg:flex lg:flex-grow lg:justify-center"
+    >
+      <motion.ul layout className="nav-wrapper">
         {mobileNavItems.map(({ path, label, id }) => {
           return (
-            <li key={id} className="list-item list-none outline-none">
+            <motion.li layout key={id} className="relative list-item">
               <Link href={path}>
-                <button
+                <motion.button
+                  layout
                   onClick={() => setSelected(path)}
                   onKeyDown={(e) =>
                     e.key === "Enter" ? setSelected(path) : null
@@ -25,17 +29,37 @@ export default function Navbar() {
                   onFocus={() => setFocused(path)}
                   onBlur={() => setFocused(null)}
                   onPointerEnter={() => setFocused(path)}
-                  onPointerLeave={() => setFocused(null)}
                   tabIndex={0}
-                  className="relative"
+                  className=""
                 >
-                  <span>{label}</span>
-                </button>
+                  <span className="list-label">{label}</span>
+                  <AnimatePresence>
+                    {focused === path ? (
+                      <motion.div
+                        transition={{
+                          layout: {
+                            duration: 0.2,
+                            ease: "easeOut",
+                          },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          transition: {
+                            duration: 1,
+                            ease: "easeOut",
+                          },
+                        }}
+                        className="highlighted-tab"
+                        layoutId="highlight"
+                      />
+                    ) : null}
+                  </AnimatePresence>
+                </motion.button>
               </Link>
-            </li>
+            </motion.li>
           );
         })}
-      </ul>
-    </nav>
+      </motion.ul>
+    </motion.nav>
   );
 }

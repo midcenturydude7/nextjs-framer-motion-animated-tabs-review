@@ -22,6 +22,28 @@
     width: 50px;
     height: 30px;
   }
+
+  .list-label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2px;
+    bottom: 0;
+    z-index: 1;
+    user-select: none;
+    font-size: 1rem;
+  }
+
+  .highlighted-tab {
+    position: absolute;
+    bottom: -2px;
+    left: -10px;
+    width: 140%;
+    height: 110%;
+    background: #23272f;
+    border-radius: 8px;
+    z-index: 0;
+  }
 }
 
 :root {
