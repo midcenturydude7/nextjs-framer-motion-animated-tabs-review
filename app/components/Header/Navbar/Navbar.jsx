@@ -24,7 +24,7 @@ export default function Navbar() {
           return (
             <li key={id} className="relative list-item">
               <Link href={path}>
-                <motion.button
+                <button
                   // layout
                   onClick={() => setSelected(path)}
                   onKeyDown={(e) =>
@@ -38,28 +38,28 @@ export default function Navbar() {
                   className="btn-tab"
                 >
                   <span className="list-label">{label}</span>
-                  <AnimatePresence>
-                    {focused === path ? (
-                      <motion.div
-                        transition={{
-                          layout: {
-                            duration: 0.2,
-                            ease: "easeOut",
-                          },
-                        }}
-                        exit={{
-                          opacity: 0,
-                          transition: {
-                            duration: 1,
-                            ease: "easeOut",
-                          },
-                        }}
-                        className="highlighted-tab"
-                        layoutId="highlight"
-                      />
-                    ) : null}
-                  </AnimatePresence>
-                </motion.button>
+                  {/* <AnimatePresence> */}
+                  {focused === path ? (
+                    <motion.div
+                      transition={{
+                        layout: {
+                          duration: 0.2,
+                          ease: "easeOut",
+                        },
+                      }}
+                      // exit={{
+                      //   opacity: 0,
+                      //   transition: {
+                      //     duration: 1,
+                      //     ease: "easeOut",
+                      //   },
+                      // }}
+                      className="highlighted-tab"
+                      layoutId="highlight"
+                    />
+                  ) : null}
+                  {/* </AnimatePresence> */}
+                </button>
               </Link>
             </li>
           );
