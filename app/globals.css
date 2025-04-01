@@ -18,10 +18,16 @@
     gap: 32px;
   }
 
-  .list-item {
+  .list-item,
+  .btn-tab {
     width: 50px;
     height: 30px;
   }
+
+  /* .btn-tab {
+    width: 50px;
+    height: 30px;
+  } */
 
   .list-label {
     position: absolute;

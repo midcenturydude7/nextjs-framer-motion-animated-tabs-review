@@ -10,15 +10,19 @@ export default function Navbar() {
   const [selected, setSelected] = React.useState(pathname);
   const [focused, setFocused] = React.useState(null);
 
+  const handleHoverEvent = (path) => {
+    onPointerEnter ? setFocused(path) : setFocused(null);
+  };
+
   return (
-    <motion.nav
+    <nav
       onPointerLeave={() => setFocused(null)}
       className="nav-container lg:flex lg:flex-grow lg:justify-center"
     >
-      <motion.ul layout className="nav-wrapper">
+      <ul className="nav-wrapper">
         {mobileNavItems.map(({ path, label, id }) => {
           return (
-            <motion.li layout key={id} className="relative list-item">
+            <li key={id} className="relative list-item">
               <Link href={path}>
                 <motion.button
                   layout
@@ -29,8 +33,9 @@ export default function Navbar() {
                   onFocus={() => setFocused(path)}
                   onBlur={() => setFocused(null)}
                   onPointerEnter={() => setFocused(path)}
+                  // onPointerLeave={() => setFocused(null)}
                   tabIndex={0}
-                  className=""
+                  className="btn-tab"
                 >
                   <span className="list-label">{label}</span>
                   <AnimatePresence>
@@ -56,10 +61,10 @@ export default function Navbar() {
                   </AnimatePresence>
                 </motion.button>
               </Link>
-            </motion.li>
+            </li>
           );
         })}
-      </motion.ul>
-    </motion.nav>
+      </ul>
+    </nav>
   );
 }
