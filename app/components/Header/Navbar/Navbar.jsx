@@ -16,16 +16,16 @@ export default function Navbar() {
 
   return (
     <nav
-      onPointerLeave={() => setFocused(null)}
+      // onPointerLeave={() => setFocused(null)}
       className="nav-container lg:flex lg:flex-grow lg:justify-center"
     >
-      <ul className="nav-wrapper">
+      <ul onPointerLeave={() => setFocused(null)} className="nav-wrapper">
         {mobileNavItems.map(({ path, label, id }) => {
           return (
             <li key={id} className="relative list-item">
               <Link href={path}>
                 <motion.button
-                  layout
+                  // layout
                   onClick={() => setSelected(path)}
                   onKeyDown={(e) =>
                     e.key === "Enter" ? setSelected(path) : null
