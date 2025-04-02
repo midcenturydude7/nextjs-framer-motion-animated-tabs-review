@@ -8,6 +8,10 @@ export const mobileNavItems = [
     label: "about",
   },
   {
+    path: "/work",
+    label: "work",
+  },
+  {
     path: "/contact",
     label: "contact",
   },
