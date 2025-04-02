@@ -59,6 +59,18 @@ export default function Navbar() {
                     />
                   ) : null}
                   {/* </AnimatePresence> */}
+                  {selected === path ? (
+                    <motion.div
+                      transition={{
+                        layout: {
+                          duration: 0.2,
+                          ease: "easeOut",
+                        },
+                      }}
+                      className="selected-tab"
+                      layoutId="underline"
+                    />
+                  ) : null}
                 </button>
               </Link>
             </li>

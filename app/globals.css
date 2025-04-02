@@ -18,16 +18,15 @@
     gap: 32px;
   }
 
-  .list-item,
-  .btn-tab {
+  .list-item {
     width: 50px;
     height: 30px;
   }
 
-  /* .btn-tab {
+  .btn-tab {
     width: 50px;
     height: 30px;
-  } */
+  }
 
   .list-label {
     position: absolute;
@@ -47,6 +46,18 @@
     width: 140%;
     height: 110%;
     background: #23272f;
+    border-radius: 8px;
+    z-index: 0;
+  }
+
+  .selected-tab {
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    right: 0;
+
+    height: 4px;
+    background: #5686f5;
     border-radius: 8px;
     z-index: 0;
   }
