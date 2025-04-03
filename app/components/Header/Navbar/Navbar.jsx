@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { mobileNavItems } from "../../../lib/mobileNavItems";
+import { cn } from "../../../lib/utils";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -17,7 +18,7 @@ export default function Navbar() {
     >
       <ul
         onPointerLeave={() => setFocused(null)}
-        className="nav-wrapper space-x-8  border-slate-300/10 bg-gradient-to-b from-[rgba(17,17,32,0.88)] to-[rgb(0,2,8)] pl-6 pr-[1.8rem] py-2"
+        className="nav-wrapper space-x-4 border-slate-300/10 bg-gradient-to-b from-[rgba(17,17,32,0.88)] to-[rgb(0,2,8)] py-[0.5rem] pl-6 pr-[1.8rem]"
       >
         {mobileNavItems.map(({ path, label, id }) => {
           return (
@@ -34,7 +35,10 @@ export default function Navbar() {
                   onPointerEnter={() => setFocused(path)}
                   // onPointerLeave={() => setFocused(null)}
                   tabIndex={0}
-                  className="btn-tab px-8 pb-[0.75em] pt-2 text-slate-300/70"
+                  className={cn(
+                    "btn-tab h-[2.5rem] w-[5.5rem] rounded-lg bg-transparent px-8 text-slate-300/70",
+                    selected === path ? "bg-[#23272f]" : "",
+                  )}
                 >
                   <span className="list-label">{label}</span>
                   {/* <AnimatePresence> */}

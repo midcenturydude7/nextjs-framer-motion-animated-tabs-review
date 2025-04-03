@@ -32,7 +32,7 @@
     position: absolute;
     left: 1px;
     right: 0;
-    top: 0;
+    top: 6.5px;
     bottom: 0;
     z-index: 1;
     user-select: none;
@@ -41,10 +41,11 @@
 
   .highlighted-tab {
     position: absolute;
-    bottom: -2px;
-    left: -10px;
-    width: 140%;
-    height: 125%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2.5rem;
     background: #23272f;
     border-radius: 8px;
     z-index: 0;
@@ -52,12 +53,12 @@
 
   .selected-tab {
     position: absolute;
-    bottom: -10px;
+    bottom: -5px;
     left: 2px;
     right: 0;
-    width: 4.25rem;
+    width: 5.25rem;
     height: 4px;
-    background: #5686f5;
+    background: #321dbc;
     border-radius: 8px;
     z-index: 0;
   }
