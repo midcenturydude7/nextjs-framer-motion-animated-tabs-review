@@ -12,6 +12,10 @@ export const mobileNavItems = [
     label: "work",
   },
   {
+    path: "/resources",
+    label: "resources",
+  },
+  {
     path: "/contact",
     label: "contact",
   },
