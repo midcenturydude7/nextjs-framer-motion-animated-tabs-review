@@ -37,7 +37,7 @@ export default function Navbar() {
                   tabIndex={0}
                   className={cn(
                     "btn-tab h-[2.5rem] w-[5.5rem] rounded-lg bg-transparent px-8 text-slate-300/70",
-                    selected === path ? "bg-[#23272f]" : "",
+                    selected === path ? "cursor-default bg-[#23272f]" : "",
                   )}
                 >
                   <span className="list-label">{label}</span>

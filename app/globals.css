@@ -24,8 +24,15 @@
   }
 
   .btn-tab {
+    position: relative;
     /* width: 50px; */
     /* height: 30px; */
+  }
+
+  .btn-tab-selected {
+    position: relative;
+    cursor: default;
+    background: #23272f;
   }
 
   .list-label {
@@ -53,7 +60,7 @@
 
   .selected-tab {
     position: absolute;
-    bottom: -5px;
+    bottom: -10px;
     left: 2px;
     right: 0;
     width: 5.25rem;
