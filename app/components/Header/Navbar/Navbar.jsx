@@ -22,7 +22,7 @@ export default function Navbar() {
       >
         {mobileNavItems.map(({ path, label, id }) => {
           return (
-            <li key={id} className="relative list-item">
+            <li key={id} className="relative">
               <Link href={path}>
                 <button
                   // layout
@@ -36,9 +36,9 @@ export default function Navbar() {
                   // onPointerLeave={() => setFocused(null)}
                   tabIndex={0}
                   className={cn(
-                    "btn-tab transtion-colors h-[2.5rem] w-[5.5rem] rounded-lg border border-transparent px-8 text-slate-300/70 duration-1000 ease-in-out hover:border-[#00b7ff27] hover:text-gray-200/80",
+                    "btn-tab h-[2.5rem] w-[5.5rem] rounded-lg border border-transparent px-8 text-slate-300/70 transition-colors duration-1000 ease-in-out hover:border-[#00b7ff27] hover:text-gray-200/80",
                     selected === path
-                      ? "cursor-default rounded-lg bg-gradient-to-b from-[#000208] to-[#141449] transition-colors duration-1000 ease-in-out border-[#00b7ff31] text-gray-200/80"
+                      ? "cursor-default rounded-lg border-[#00b7ff31] bg-gradient-to-b from-[#000208] to-[#141449] text-gray-200/80 transition-colors duration-1000 ease-in-out"
                       : "",
                   )}
                 >
@@ -59,7 +59,11 @@ export default function Navbar() {
                       //     ease: "easeOut",
                       //   },
                       // }}
-                      className="highlighted-tab"
+                      className={cn(
+                        selected === path
+                          ? "highlighted-tab-selected"
+                          : "highlighted-tab",
+                      )}
                       layoutId="highlight"
                     />
                   ) : null}
