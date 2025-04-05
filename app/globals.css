@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     /* padding: 8px 16px; */
-    background: #3c4046;
+    /* background: #3c4046; */
     border-radius: 8px;
     width: fit-content;
     border: 1px solid #2b303b;
@@ -91,7 +91,7 @@
     right: 0;
     width: 5.25rem;
     height: 4px;
-    background: #2b10a1;
+    background: #4c4fffa7;
     border-radius: 8px;
     z-index: 0;
   }
