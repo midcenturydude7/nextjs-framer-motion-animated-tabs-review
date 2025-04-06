@@ -50,10 +50,27 @@
     opacity: 1;
   }
 
-  .btn-tab-active::before {
-    background: linear-gradient(to bottom, #000208, #271449);
-
+  .btn-tab-active {
+    position: relative;
+    z-index: 2;
     opacity: 1;
+  }
+
+  .btn-tab-active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #000208, #141449);
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .btn-tab-active:hover::before {
+    opacity: 0;
   }
 
   .btn-tab-selected {
