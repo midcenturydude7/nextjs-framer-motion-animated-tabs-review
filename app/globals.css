@@ -10,7 +10,7 @@
   .nav-wrapper {
     display: flex;
     align-items: center;
-    /* padding: 8px 16px; */
+    height: 57px;
     /* background: #3c4046; */
     border-radius: 8px;
     width: fit-content;
@@ -18,18 +18,20 @@
     /* gap: 32px; */
   }
 
-  /* .list-item {
-    width: 50px;
-    height: 30px;
-  } */
+  .list-item {
+
+    padding-right: 15px;
+    height: 25px;
+  }
+
+  .list-item:last-child {
+    padding-right: 0;
+  }
 
   .btn-tab {
     position: relative;
+    top: -10px;
     z-index: 2;
-
-    /* overflow: hidden; */
-    /* width: 50px; */
-    /* height: 30px; */
   }
 
   .btn-tab::before {
