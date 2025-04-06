@@ -22,7 +22,7 @@ export default function Navbar() {
       >
         {mobileNavItems.map(({ path, label, id }) => {
           return (
-            <li key={id} className="list-item relative border-r-[2px] border-slate-500/10 last:border-0">
+            <li key={id} className="list-item relative border-r-[2px] border-slate-500/20 last:border-0">
               <Link href={path}>
                 <button
                   // layout

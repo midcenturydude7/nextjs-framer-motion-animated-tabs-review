@@ -19,7 +19,7 @@
   }
 
   .list-item {
-
+    border-style: dashed;
     padding-right: 15px;
     height: 25px;
   }
