@@ -123,7 +123,7 @@
     right: 0;
     width: 5.25rem;
     height: 4px;
-    /* background: #4c4fffa7; */
+    background-color: #00ff91;
     border-radius: 8px;
     z-index: 0;
     transition: opacity 1s ease-in-out;

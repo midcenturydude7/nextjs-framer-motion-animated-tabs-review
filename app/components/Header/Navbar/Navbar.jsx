@@ -22,7 +22,10 @@ export default function Navbar() {
       >
         {mobileNavItems.map(({ path, label, id }) => {
           return (
-            <li key={id} className="list-item relative border-r-[2px] border-slate-500/20 last:border-0">
+            <li
+              key={id}
+              className="relative list-item border-r-[2px] border-slate-500/20 last:border-0"
+            >
               <Link href={path}>
                 <button
                   // layout
@@ -76,7 +79,7 @@ export default function Navbar() {
                           ease: "easeOut",
                         },
                       }}
-                      className="selected-tab bg-gradient-to-r from-[#000208] to-[#00b7ffcf]"
+                      className="selected-tab bg-gradient-to-r from-[#1a3a3e] to-[#00b7ffcf]"
                       layoutId="underline"
                     />
                   ) : null}
