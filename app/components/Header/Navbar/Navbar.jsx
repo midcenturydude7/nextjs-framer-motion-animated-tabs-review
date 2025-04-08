@@ -18,7 +18,7 @@ export default function Navbar() {
     >
       <ul
         onPointerLeave={() => setFocused(null)}
-        className="nav-wrapper space-x-4 border-slate-300/10 bg-gradient-to-b from-[rgba(17,17,32,0.88)] to-[rgb(0,2,8)] py-[0.5rem] pl-6 pr-[1.8rem]"
+        className="nav-wrapper space-x-4 border-slate-300/10 bg-gradient-to-b from-[rgba(21,24,43,0.79)] to-[rgba(0,0,0,0.87)] py-[0.5rem] pl-6 pr-[1.8rem]"
       >
         {mobileNavItems.map(({ path, label, id }) => {
           return (
@@ -27,8 +27,8 @@ export default function Navbar() {
               className="relative list-item border-r-[2px] border-slate-500/20 last:border-0"
             >
               <Link href={path}>
-                <button
-                  // layout
+                <motion.button
+                  layout
                   onClick={() => setSelected(path)}
                   onKeyDown={(e) =>
                     e.key === "Enter" ? setSelected(path) : null
@@ -45,8 +45,10 @@ export default function Navbar() {
                       : "",
                   )}
                 >
-                  <span className="list-label">{label}</span>
-                  {/* <AnimatePresence> */}
+                  <motion.span layout className="list-label">
+                    {label}
+                  </motion.span>
+                  {/* 'FOLLOW' HIGHLIGHT: Animates when the button is focused and follows cursor */}
                   {focused === path ? (
                     <motion.div
                       transition={{
@@ -54,14 +56,9 @@ export default function Navbar() {
                           duration: 0.2,
                           ease: "easeOut",
                         },
+                        // duration: 1,
                       }}
-                      // exit={{
-                      //   opacity: 0,
-                      //   transition: {
-                      //     duration: 1,
-                      //     ease: "easeOut",
-                      //   },
-                      // }}
+                      // initial={false}
                       className={cn(
                         selected === path
                           ? "highlighted-tab-selected"
@@ -70,20 +67,42 @@ export default function Navbar() {
                       layoutId="highlight"
                     />
                   ) : null}
-                  {/* </AnimatePresence> */}
+                  {/* UNDERLINE: Animates/moves along selected path */}
                   {selected === path ? (
                     <motion.div
                       transition={{
                         layout: {
-                          duration: 0.2,
+                          duration: 0.25,
                           ease: "easeOut",
+                          type: "spring",
+                          bounce: 0,
+                          damping: 50,
+                          mass: 0.5,
+                          stiffness: 500,
                         },
                       }}
                       className="selected-tab bg-gradient-to-r from-[#1a3a3e] to-[#00b7ffcf]"
                       layoutId="underline"
                     />
                   ) : null}
-                </button>
+                  {!focused && selected === path ? (
+                    <motion.div
+                      className="boomerang-tab bg-gradient-to-b from-[#000208] to-[#00b7ff1e] transition-colors duration-1000 hover:bg-gradient-to-b hover:from-[#000208] hover:to-[#141449]"
+                      transition={{
+                        layout: {
+                          duration: 0.2,
+                          ease: "easeOut",
+                          type: "spring",
+                          bounce: 0,
+                          damping: 50,
+                          mass: 0.5,
+                          stiffness: 500,
+                        },
+                      }}
+                      layoutId="highlight"
+                    />
+                  ) : null}
+                </motion.button>
               </Link>
             </li>
           );

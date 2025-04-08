@@ -104,6 +104,19 @@
     z-index: 0;
   }
 
+  .boomerang-tab {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2.5rem;
+    /* background: linear-gradient(to bottom, #000208, #00b7ff1e); */
+    border-radius: 8px;
+    z-index: 0;
+    /* transform: rotate(45deg); */
+  }
+
   .highlighted-tab-selected {
     position: absolute;
     top: 0;
