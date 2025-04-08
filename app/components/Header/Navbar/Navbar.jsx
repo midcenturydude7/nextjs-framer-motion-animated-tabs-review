@@ -85,6 +85,7 @@ export default function Navbar() {
                       layoutId="underline"
                     />
                   ) : null}
+                  {/* "BOOMERANG" HIGHLIGHT: If new path isn't selected, highlight returns to selected path */}
                   {!focused && selected === path ? (
                     <motion.div
                       className="boomerang-tab bg-gradient-to-b from-[#000208] to-[#00b7ff1e] transition-colors duration-1000 hover:bg-gradient-to-b hover:from-[#000208] hover:to-[#141449]"
