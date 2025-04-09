@@ -48,14 +48,13 @@
     transition: opacity 1s ease-in-out;
   }
 
-  .btn-tab:hover::before {
+  /* .btn-tab:hover::before {
     opacity: 1;
-  }
+  } */
 
   .btn-tab-active {
     position: relative;
     z-index: 2;
-    opacity: 1;
   }
 
   .btn-tab-active::before {

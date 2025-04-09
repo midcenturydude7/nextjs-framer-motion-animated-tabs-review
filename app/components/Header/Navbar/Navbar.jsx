@@ -54,7 +54,13 @@ export default function Navbar() {
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                        exit={{
+                          opacity: 0,
+                          transition: {
+                            duration: 1,
+                            ease: "easeOut",
+                          },
+                        }}
                         transition={{
                           layout: {
                             duration: 0.25,
@@ -94,8 +100,18 @@ export default function Navbar() {
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="boomerang-tab bg-gradient-to-b from-[#000208] to-[#141449] transition-colors duration-1000 hover:bg-gradient-to-b hover:from-[#000208] hover:to-[#00b7ff1e]"
+                        exit={{
+                          opacity: 0,
+                          transition: {
+                            duration: 1,
+                            ease: "easeOut",
+                          },
+                        }}
+                        className={cn(
+                          selected === path
+                            ? "highlighted-tab-selected"
+                            : "boomerang-tab bg-gradient-to-b from-[#000208] to-[#141449] transition-colors duration-1000 ease-in-out",
+                        )}
                         transition={{
                           layout: {
                             duration: 0.25,
