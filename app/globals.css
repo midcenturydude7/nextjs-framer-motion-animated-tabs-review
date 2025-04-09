@@ -65,10 +65,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, #000208, #141449);
+    background: linear-gradient(to bottom, #000208, #00b7ff1e);
     z-index: -1;
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
   }
 
   .btn-tab-active:hover::before {
@@ -114,7 +114,6 @@
     /* background: linear-gradient(to bottom, #000208, #00b7ff1e); */
     border-radius: 8px;
     z-index: 0;
-    /* transform: rotate(45deg); */
   }
 
   .highlighted-tab-selected {
@@ -139,7 +138,7 @@
     background-color: #00ff91;
     border-radius: 8px;
     z-index: 0;
-    transition: opacity 1s ease-in-out;
+    /* transition: opacity 1s ease-in-out; */
   }
 }
 

@@ -49,24 +49,27 @@ export default function Navbar() {
                     {label}
                   </motion.span>
                   {/* 'FOLLOW' HIGHLIGHT: Animates when the button is focused and follows cursor */}
-                  {focused === path ? (
-                    <motion.div
-                      transition={{
-                        layout: {
-                          duration: 0.2,
-                          ease: "easeOut",
-                        },
-                        // duration: 1,
-                      }}
-                      // initial={false}
-                      className={cn(
-                        selected === path
-                          ? "highlighted-tab-selected"
-                          : "highlighted-tab",
-                      )}
-                      layoutId="highlight"
-                    />
-                  ) : null}
+                  <AnimatePresence>
+                    {focused === path ? (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{
+                          layout: {
+                            duration: 0.25,
+                            ease: "easeOut",
+                          },
+                        }}
+                        className={cn(
+                          selected === path
+                            ? "highlighted-tab-selected"
+                            : "highlighted-tab",
+                        )}
+                        layoutId="highlight"
+                      />
+                    ) : null}
+                  </AnimatePresence>
                   {/* UNDERLINE: Animates/moves along selected path */}
                   {selected === path ? (
                     <motion.div
@@ -81,28 +84,33 @@ export default function Navbar() {
                           stiffness: 500,
                         },
                       }}
-                      className="selected-tab bg-gradient-to-r from-[#1a3a3e] to-[#00b7ffcf]"
+                      className="selected-tab bg-gradient-to-r from-[#0f2124] to-[#00b7ffcf]"
                       layoutId="underline"
                     />
                   ) : null}
                   {/* "BOOMERANG" HIGHLIGHT: If new path isn't selected, highlight returns to selected path */}
-                  {!focused && selected === path ? (
-                    <motion.div
-                      className="boomerang-tab bg-gradient-to-b from-[#000208] to-[#00b7ff1e] transition-colors duration-1000 hover:bg-gradient-to-b hover:from-[#000208] hover:to-[#141449]"
-                      transition={{
-                        layout: {
-                          duration: 0.2,
-                          ease: "easeOut",
-                          type: "spring",
-                          bounce: 0,
-                          damping: 50,
-                          mass: 0.5,
-                          stiffness: 500,
-                        },
-                      }}
-                      layoutId="highlight"
-                    />
-                  ) : null}
+                  <AnimatePresence>
+                    {!focused && selected === path ? (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="boomerang-tab bg-gradient-to-b from-[#000208] to-[#141449] transition-colors duration-1000 hover:bg-gradient-to-b hover:from-[#000208] hover:to-[#00b7ff1e]"
+                        transition={{
+                          layout: {
+                            duration: 0.25,
+                            ease: "easeOut",
+                            type: "spring",
+                            bounce: 0,
+                            damping: 50,
+                            mass: 0.5,
+                            stiffness: 500,
+                          },
+                        }}
+                        layoutId="highlight"
+                      />
+                    ) : null}
+                  </AnimatePresence>
                 </motion.button>
               </Link>
             </li>
