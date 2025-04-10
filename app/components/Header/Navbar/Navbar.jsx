@@ -24,36 +24,42 @@ export default function Navbar() {
           return (
             <li
               key={id}
-              className="relative list-item border-r-[2px] border-slate-500/20 last:border-0"
+              className="relative list-item border-r-[2px] border-slate-500/15 last:border-0"
             >
               <Link href={path}>
-                <motion.button
-                  layout
-                  onClick={() => setSelected(path)}
-                  onKeyDown={(e) =>
-                    e.key === "Enter" ? setSelected(path) : null
-                  }
-                  onFocus={() => setFocused(path)}
-                  onBlur={() => setFocused(null)}
-                  onPointerEnter={() => setFocused(path)}
-                  // onPointerLeave={() => setFocused(null)}
-                  tabIndex={0}
-                  className={cn(
-                    "btn-tab btn-tab-click h-[2.5rem] w-[5.5rem] rounded-lg border border-transparent px-8 text-slate-300/70 transition-colors duration-1000 ease-in-out hover:border-[#00b7ff27] hover:text-gray-200/80",
-                    selected === path
-                      ? "btn-tab-active cursor-default rounded-lg border-[#00b7ff3b] text-gray-200/80 transition-colors duration-1000 ease-out"
-                      : "",
-                  )}
-                >
-                  <motion.span layout className="list-label">
-                    {label}
-                  </motion.span>
-                  {/* 'FOLLOW' HIGHLIGHT: Animates when the button is focused and follows cursor */}
-                  <AnimatePresence>
+                <AnimatePresence>
+                  <motion.button
+                    // layout
+                    onClick={() => setSelected(path)}
+                    onKeyDown={(e) =>
+                      e.key === "Enter" ? setSelected(path) : null
+                    }
+                    onFocus={() => setFocused(path)}
+                    onBlur={() => setFocused(null)}
+                    onPointerEnter={() => setFocused(path)}
+                    tabIndex={0}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{
+                      opacity: 0,
+                      transition: {
+                        duration: 1,
+                        ease: "easeOut",
+                      },
+                    }}
+                    className={cn(
+                      "btn-tab h-[2.5rem] w-[5.5rem] rounded-lg border border-transparent px-8 text-slate-300/70 transition-colors duration-1000 ease-in-out hover:border-[#00b7ff27] hover:text-gray-200/80",
+                      selected === path
+                        ? "btn-tab-active cursor-default rounded-lg border-[#00b7ff3b] text-gray-200/80 transition-colors duration-1000 ease-out"
+                        : "",
+                    )}
+                  >
+                    <span className="list-label">{label}</span>
+                    {/* 'FOLLOW' HIGHLIGHT: Animates when the button is focused and follows cursor */}
                     {focused === path ? (
                       <motion.div
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        animate={{ opacity: 1, transition: { duration: 0.25 } }}
                         exit={{
                           opacity: 0,
                           transition: {
@@ -75,27 +81,25 @@ export default function Navbar() {
                         layoutId="highlight"
                       />
                     ) : null}
-                  </AnimatePresence>
-                  {/* UNDERLINE: Animates/moves along selected path */}
-                  {selected === path ? (
-                    <motion.div
-                      transition={{
-                        layout: {
-                          duration: 0.25,
-                          ease: "easeOut",
-                          type: "spring",
-                          bounce: 0,
-                          damping: 50,
-                          mass: 0.5,
-                          stiffness: 500,
-                        },
-                      }}
-                      className="selected-tab bg-gradient-to-r from-[#0f2124] to-[#00b7ffcf]"
-                      layoutId="underline"
-                    />
-                  ) : null}
-                  {/* "BOOMERANG" HIGHLIGHT: If new path isn't selected, highlight returns to selected path */}
-                  <AnimatePresence>
+                    {/* UNDERLINE: Animates/moves along selected path */}
+                    {selected === path ? (
+                      <motion.div
+                        transition={{
+                          layout: {
+                            duration: 0.25,
+                            ease: "easeOut",
+                            type: "spring",
+                            bounce: 0,
+                            damping: 50,
+                            mass: 0.5,
+                            stiffness: 500,
+                          },
+                        }}
+                        className="selected-tab bg-gradient-to-r from-[#0f2124] to-[#00b7ffcf]"
+                        layoutId="underline"
+                      />
+                    ) : null}
+                    {/* "BOOMERANG" HIGHLIGHT: If new path isn't selected, highlight returns to selected path */}
                     {!focused && selected === path ? (
                       <motion.div
                         initial={{ opacity: 0 }}
@@ -126,8 +130,8 @@ export default function Navbar() {
                         layoutId="highlight"
                       />
                     ) : null}
-                  </AnimatePresence>
-                </motion.button>
+                  </motion.button>
+                </AnimatePresence>
               </Link>
             </li>
           );
