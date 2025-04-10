@@ -39,9 +39,9 @@ export default function Navbar() {
                   // onPointerLeave={() => setFocused(null)}
                   tabIndex={0}
                   className={cn(
-                    "btn-tab h-[2.5rem] w-[5.5rem] rounded-lg border border-transparent px-8 text-slate-300/70 transition-colors duration-1000 ease-in-out hover:border-[#00b7ff27] hover:text-gray-200/80",
+                    "btn-tab btn-tab-click h-[2.5rem] w-[5.5rem] rounded-lg border border-transparent px-8 text-slate-300/70 transition-colors duration-1000 ease-in-out hover:border-[#00b7ff27] hover:text-gray-200/80",
                     selected === path
-                      ? "btn-tab-active cursor-default rounded-lg border-[#00b7ff30] text-gray-200/80 transition-colors duration-1000 ease-in-out"
+                      ? "btn-tab-active cursor-default rounded-lg border-[#00b7ff3b] text-gray-200/80 transition-colors duration-1000 ease-out"
                       : "",
                   )}
                 >

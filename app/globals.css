@@ -44,7 +44,7 @@
     background: linear-gradient(to bottom, #000208, #141449);
     border-radius: 8px;
     opacity: 0;
-    z-index: -1;
+    z-index: 0;
     transition: opacity 1s ease-in-out;
   }
 
@@ -65,13 +65,13 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(to bottom, #000208, #00b7ff1e);
-    z-index: -1;
+    z-index: 0;
     opacity: 1;
     transition: opacity 1s ease-in-out;
   }
 
   .btn-tab-active:hover::before {
-    opacity: 0;
+    opacity: 1;
   }
 
   .btn-tab-selected {
