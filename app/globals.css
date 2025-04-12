@@ -28,7 +28,9 @@
     padding-right: 0;
   }
 
-  .btn-tab {
+  .btn-tab,
+  .btn-tab-active,
+  .btn-tab-focused {
     position: relative;
     top: -10px;
     z-index: 2;
@@ -41,20 +43,17 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, #000208, #141449);
+    background: linear-gradient(to bottom, #000208, #00b3ff22);
     border-radius: 8px;
     opacity: 0;
     z-index: 0;
-    /* transition: opacity 1s ease-in-out; */
+    transition: opacity 1s ease-in-out;
   }
 
-  /* .btn-tab:hover::before {
+  .btn-tab:hover::before,
+  .btn-tab-active:hover::before,
+  .btn-tab-focused:hover::before {
     opacity: 1;
-  } */
-
-  .btn-tab-active {
-    position: relative;
-    z-index: 2;
   }
 
   .btn-tab-active::before {
@@ -70,14 +69,10 @@
     transition: opacity 1s ease-in-out;
   }
 
-  .btn-tab-active:hover::before {
+  .btn-tab-focused::before {
+    background: linear-gradient(to bottom, #000208, #00b3ff22);
     opacity: 1;
-  }
-
-  .btn-tab-selected {
-    position: relative;
-    cursor: default;
-    background: #23272f;
+    transition: opacity 1s ease-in-out;
   }
 
   .list-label {

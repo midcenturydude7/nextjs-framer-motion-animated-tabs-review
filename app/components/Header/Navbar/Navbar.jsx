@@ -38,20 +38,22 @@ export default function Navbar() {
                     onBlur={() => setFocused(null)}
                     onPointerEnter={() => setFocused(path)}
                     tabIndex={0}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{
-                      opacity: 0,
-                      transition: {
-                        duration: 1,
-                        ease: "easeOut",
-                      },
-                    }}
+                    // initial={{ opacity: 0 }}
+                    // animate={{ opacity: 1 }}
+                    // exit={{
+                    //   opacity: 0,
+                    //   transition: {
+                    //     duration: 1,
+                    //     ease: "easeOut",
+                    //   },
+                    // }}
                     className={cn(
                       "btn-tab h-[2.5rem] w-[5.5rem] rounded-lg border border-transparent px-8 text-slate-300/70 transition-colors duration-1000 ease-in-out hover:border-[#00b7ff27] hover:text-gray-200/80",
                       selected === path
                         ? "btn-tab-active cursor-default rounded-lg border-[#00b7ff3b] text-gray-200/80 transition-colors duration-1000 ease-out"
-                        : "",
+                        : !selected && focused
+                          ? "btn-tab-focused"
+                          : "",
                     )}
                   >
                     <span className="list-label">{label}</span>
