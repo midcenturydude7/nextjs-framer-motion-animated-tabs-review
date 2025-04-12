@@ -71,6 +71,11 @@ export default function Navbar() {
                           layout: {
                             duration: 0.25,
                             ease: "easeOut",
+                            type: "spring",
+                            bounce: 0,
+                            damping: 50,
+                            mass: 0.5,
+                            stiffness: 500,
                           },
                         }}
                         className={cn(
@@ -102,20 +107,15 @@ export default function Navbar() {
                     {/* "BOOMERANG" HIGHLIGHT: If new path isn't selected, highlight returns to selected path */}
                     {!focused && selected === path ? (
                       <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{
-                          opacity: 0,
-                          transition: {
-                            duration: 1,
-                            ease: "easeOut",
-                          },
-                        }}
-                        className={cn(
-                          selected === path
-                            ? "highlighted-tab-selected"
-                            : "boomerang-tab bg-gradient-to-b from-[#000208] to-[#141449] transition-colors duration-1000 ease-in-out",
-                        )}
+                        // initial={{ opacity: 0 }}
+                        // animate={{ opacity: 1 }}
+                        // exit={{
+                        //   opacity: 0,
+                        //   transition: {
+                        //     duration: 1,
+                        //     ease: "easeOut",
+                        //   },
+                        // }}
                         transition={{
                           layout: {
                             duration: 0.25,
@@ -127,6 +127,12 @@ export default function Navbar() {
                             stiffness: 500,
                           },
                         }}
+                        className={cn(
+                          "boomerang-tab",
+                          selected === path
+                            ? "bg-gradient-to-b from-[#000208] to-[#141449] transition-colors duration-1000 ease-in-out"
+                            : "",
+                        )}
                         layoutId="highlight"
                       />
                     ) : null}
