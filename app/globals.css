@@ -43,7 +43,11 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, #000208, #00b3ff22);
+    background: linear-gradient(
+      to bottom,
+      hsla(222, 100%, 2%, 0.614),
+      hsla(198, 100%, 50%, 0.133)
+    );
     border-radius: 8px;
     opacity: 0;
     z-index: 0;
