@@ -120,6 +120,8 @@
     background: linear-gradient(to bottom, #000208, #141449);
     border-radius: 8px;
     z-index: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
   }
 
   .selected-tab {
