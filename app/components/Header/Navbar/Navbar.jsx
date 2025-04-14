@@ -130,9 +130,12 @@ export default function Navbar() {
                           },
                         }}
                         className={cn(
-                          "boomerang-tab",
+                          "boomerang-tab transition-colors duration-1000 ease-in-out",
                           selected === path
                             ? "bg-gradient-to-b from-[#000208] to-[#141449] transition-colors duration-1000 ease-in-out"
+                            : "",
+                          !selected && focused !== path
+                            ? "hover:border-red-500/50"
                             : "",
                         )}
                         layoutId="highlight"
