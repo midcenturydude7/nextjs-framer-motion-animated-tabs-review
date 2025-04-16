@@ -38,15 +38,15 @@ export default function Navbar() {
                     onBlur={() => setFocused(null)}
                     onPointerEnter={() => setFocused(path)}
                     tabIndex={0}
-                    // initial={{ opacity: 0 }}
-                    // animate={{ opacity: 1 }}
-                    // exit={{
-                    //   opacity: 0,
-                    //   transition: {
-                    //     duration: 1,
-                    //     ease: "easeOut",
-                    //   },
-                    // }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{
+                      opacity: 0,
+                      transition: {
+                        duration: 1,
+                        ease: "easeOut",
+                      },
+                    }}
                     className={cn(
                       "btn-tab h-[2.5rem] w-[5.5rem] rounded-lg border border-transparent px-8 text-slate-300/70 transition-colors duration-1000 ease-in-out hover:border-[hsla(197,61%,39%,0.65)] hover:border-b-[hsla(197,61%,39%,0.40)] hover:text-gray-200/80",
                       selected === path
@@ -60,15 +60,15 @@ export default function Navbar() {
                     {/* 'FOLLOW' HIGHLIGHT: Animates when the button is focused and follows cursor */}
                     {focused === path ? (
                       <motion.div
-                        // initial={{ opacity: 0 }}
-                        // animate={{ opacity: 1, transition: { duration: 0.25 } }}
-                        // exit={{
-                        //   opacity: 0,
-                        //   transition: {
-                        //     duration: 1,
-                        //     ease: "easeOut",
-                        //   },
-                        // }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, transition: { duration: 0.25 } }}
+                        exit={{
+                          opacity: 0,
+                          transition: {
+                            duration: 1,
+                            ease: "easeOut",
+                          },
+                        }}
                         transition={{
                           layout: {
                             duration: 0.25,
@@ -109,15 +109,15 @@ export default function Navbar() {
                     {/* "BOOMERANG" HIGHLIGHT: If new path isn't selected, highlight returns to selected path */}
                     {!focused && selected === path ? (
                       <motion.div
-                        // initial={{ opacity: 0 }}
-                        // animate={{ opacity: 1 }}
-                        // exit={{
-                        //   opacity: 0,
-                        //   transition: {
-                        //     duration: 1,
-                        //     ease: "easeOut",
-                        //   },
-                        // }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{
+                          opacity: 0,
+                          transition: {
+                            duration: 1,
+                            ease: "easeOut",
+                          },
+                        }}
                         transition={{
                           layout: {
                             duration: 0.25,
@@ -131,11 +131,8 @@ export default function Navbar() {
                         }}
                         className={cn(
                           "boomerang-tab transition-colors duration-1000 ease-in-out",
-                          selected === path
-                            ? "bg-gradient-to-b from-[#000208] to-[#141449] transition-colors duration-1000 ease-in-out"
-                            : "",
-                          !selected && focused !== path
-                            ? "hover:border-red-500/50"
+                          !focused && selected === path
+                            ? "bg-gradient-to-b from-[#000208] to-[#00c3ff42] transition-colors duration-1000 ease-in-out"
                             : "",
                         )}
                         layoutId="highlight"
