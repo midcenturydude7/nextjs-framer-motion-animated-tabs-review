@@ -48,7 +48,7 @@ export default function Navbar() {
                     //   },
                     // }}
                     className={cn(
-                      "btn-tab h-[2.5rem] w-[5.5rem] rounded-lg border border-transparent px-8 text-slate-300/70 transition-colors duration-1000 ease-in-out hover:border-[hsla(197,61%,39%,0.65)] hover:border-b-transparent hover:text-gray-200/80",
+                      "btn-tab h-[2.5rem] w-[5.5rem] rounded-lg border border-transparent px-8 text-slate-300/70 transition-colors duration-1000 ease-in-out hover:border-[hsla(197,61%,39%,0.65)] hover:border-b-[hsla(197,61%,39%,0.40)] hover:text-gray-200/80",
                       selected === path
                         ? "btn-tab-active cursor-default rounded-lg border-[#00b7ff3b] text-gray-200/80 transition-colors duration-1000 ease-out hover:border-[#00b7ff3b]"
                         : !selected && focused
