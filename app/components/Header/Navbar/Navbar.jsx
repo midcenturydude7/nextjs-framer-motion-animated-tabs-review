@@ -131,7 +131,7 @@ export default function Navbar() {
                         }}
                         className={cn(
                           "boomerang-tab transition-colors duration-1000 ease-in-out",
-                          !focused && selected === path
+                          !focused && selected
                             ? "bg-gradient-to-b from-[#000208] to-[#00c3ff42] transition-colors duration-1000 ease-in-out"
                             : "",
                         )}
