@@ -52,7 +52,9 @@ export default function Navbar() {
                       selected === path
                         ? "btn-tab-active cursor-default rounded-lg border-[#00b7ff3b] text-gray-200/80 transition-colors duration-1000 ease-out hover:border-[#00b7ff3b]"
                         : "",
-                      !selected && focused ? "btn-tab-focused" : "",
+                      !selected && focused
+                        ? "btn-tab-focused transition-colors duration-1000 ease-out"
+                        : "",
                     )}
                   >
                     <span className="list-label">{label}</span>
