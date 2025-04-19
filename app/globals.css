@@ -120,7 +120,7 @@
     /* background: linear-gradient(to bottom, #000208, #141449); */
     border-radius: 8px;
     z-index: 0;
-    opacity: 1;
+    opacity: 0;
     transition: opacity 1s ease-in-out;
   }
 
@@ -135,7 +135,7 @@
     height: 2.5rem;
     border-radius: 8px;
     background: linear-gradient(to bottom, #000208, #00b7ff1e);
-    opacity: 0;
+    opacity: 1;
     z-index: -1;
     transition: opacity 1s ease-in-out;
   }
@@ -147,10 +147,10 @@
     left: 0;
     width: 100%;
     height: 2.5rem;
-    background: linear-gradient(to bottom, #000208, #141449);
+    background: linear-gradient(to bottom, #000208, #00b7ff1e);
     border-radius: 8px;
     z-index: 0;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 1s ease-in-out;
   }
 
