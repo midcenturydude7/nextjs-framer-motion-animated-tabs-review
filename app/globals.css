@@ -154,7 +154,7 @@
     transition: opacity 1s ease-in-out;
   }
 
-  /* .highlighted-tab-selected::before {
+  .highlighted-tab-selected::before {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -166,7 +166,7 @@
     z-index: -1;
     opacity: 1;
     transition: opacity 1s ease-in-out;
-  } */
+  }
 
   .selected-tab {
     position: absolute;
