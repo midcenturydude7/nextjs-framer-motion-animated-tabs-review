@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { cn } from "../../../lib/utils";
 import { mobileNavItems } from "../../../lib/mobileNavItems";
 import { useNavContext } from "../../../contexts/NavContext";
+import { menuSlide, slide } from "../../../lib/anim";
+import Curve from "./Curve/Curve";
 
 export default function MobileNav() {
   const pathname = usePathname();
@@ -47,7 +49,7 @@ export default function MobileNav() {
         {mobileNavbar && (
           <motion.div
             key="mobile-navbar"
-            // variants={menuSlide}
+            variants={menuSlide}
             initial="initial"
             animate="enter"
             exit="exit"
@@ -64,7 +66,7 @@ export default function MobileNav() {
                         setSelectedTab(path);
                         toggleMobileNavbar();
                       }}
-                      // variants={slide}
+                      variants={slide}
                       initial={"initial"}
                       animate="enter"
                       exit="exit"
@@ -101,6 +103,7 @@ export default function MobileNav() {
                 </li>
               </motion.ul>
             </motion.div>
+            <Curve />
           </motion.div>
         )}
       </AnimatePresence>
