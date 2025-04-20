@@ -5,10 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { mobileNavItems } from "../../../lib/mobileNavItems";
 import { cn } from "../../../lib/utils";
+import { useNavContext } from "../../../contexts/NavContext";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [selected, setSelected] = React.useState(pathname);
+  const { selectedTab, setSelectedTab } = useNavContext();
   const [focused, setFocused] = React.useState(null);
 
   return (
@@ -30,9 +31,9 @@ export default function Navbar() {
                 <AnimatePresence>
                   <motion.button
                     // layout
-                    onClick={() => setSelected(path)}
+                    onClick={() => setSelectedTab(path)}
                     onKeyDown={(e) =>
-                      e.key === "Enter" ? setSelected(path) : null
+                      e.key === "Enter" ? setSelectedTab(path) : null
                     }
                     onFocus={() => setFocused(path)}
                     onBlur={() => setFocused(null)}
@@ -49,10 +50,10 @@ export default function Navbar() {
                     }}
                     className={cn(
                       "btn-tab h-[2.5rem] w-[5.5rem] rounded-lg border border-transparent px-8 text-slate-300/70 transition-colors duration-1000 ease-in-out hover:border-[hsla(197,61%,39%,0.65)] hover:border-b-[hsla(197,61%,39%,0.40)] hover:text-gray-200/80",
-                      selected === path
+                      selectedTab === path
                         ? "btn-tab-active cursor-default rounded-lg border-[#00b7ff3b] text-gray-200/80 transition-colors duration-1000 ease-out hover:border-[#00b7ff3b]"
                         : "",
-                      !selected && focused
+                      !selectedTab && focused
                         ? "btn-tab-focused transition-colors duration-1000 ease-out"
                         : "",
                     )}
@@ -82,7 +83,7 @@ export default function Navbar() {
                           },
                         }}
                         className={cn(
-                          selected === path
+                          selectedTab === path
                             ? "highlighted-tab-selected"
                             : "highlighted-tab bg-gradient-to-b from-[#000208] from-30% to-[#00c3ff42] to-100% transition-colors duration-1000 ease-in-out",
                         )}
@@ -90,7 +91,7 @@ export default function Navbar() {
                       />
                     ) : null}
                     {/* UNDERLINE: Animates/moves along selected path */}
-                    {selected === path ? (
+                    {selectedTab === path ? (
                       <motion.div
                         transition={{
                           layout: {
@@ -108,7 +109,7 @@ export default function Navbar() {
                       />
                     ) : null}
                     {/* "BOOMERANG" HIGHLIGHT: If new path isn't selected, highlight returns to selected path */}
-                    {!focused && selected === path ? (
+                    {!focused && selectedTab === path ? (
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -132,7 +133,7 @@ export default function Navbar() {
                         }}
                         className={cn(
                           "boomerang-tab transition-colors duration-1000 ease-in-out",
-                          !focused && selected
+                          !focused && selectedTab
                             ? "bg-gradient-to-b from-[#000208] to-[#00c3ff42] transition-colors duration-1000 ease-in-out"
                             : "",
                         )}

@@ -5,9 +5,11 @@ import { motion, useCycle, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { cn } from "../../../lib/utils";
 import { mobileNavItems } from "../../../lib/mobileNavItems";
+import { useNavContext } from "../../../contexts/NavContext";
 
 export default function MobileNav() {
   const pathname = usePathname();
+  const { selectedTab, setSelectedTab } = useNavContext();
   const [mobileNavbar, toggleMobileNavbar] = useCycle(false, true);
 
   return (
@@ -53,12 +55,15 @@ export default function MobileNav() {
           >
             <motion.div className="flex flex-col space-y-3">
               {mobileNavItems.map(({ id, path, label }) => {
-                const isActive = path === pathname;
+                const isActive = path === selectedTab;
                 return (
                   <Link key={id} href={path}>
                     <motion.button
                       data-active={isActive}
-                      onClick={() => toggleMobileNavbar(path)}
+                      onClick={() => {
+                        setSelectedTab(path);
+                        toggleMobileNavbar();
+                      }}
                       // variants={slide}
                       initial={"initial"}
                       animate="enter"
