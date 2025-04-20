@@ -43,7 +43,7 @@ export default function Curve() {
         exit="exit"
         fill="url(#curveGradient)"
         stroke={strokeColor}
-        strokeWidth="0.0115em"
+        strokeWidth="0.0175em"
       />
     </svg>
   );
