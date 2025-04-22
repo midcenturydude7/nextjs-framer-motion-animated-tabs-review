@@ -55,11 +55,11 @@ export default function MobileNav() {
             exit="exit"
             className="fixed inset-0 flex h-full flex-col items-center justify-center gap-10 bg-gradient-to-b from-[rgba(12,12,39,1)] to-[rgb(0,2,8)]"
           >
-            <motion.div className="flex flex-col space-y-3">
+            <motion.div className="flex flex-col space-y-6">
               {mobileNavItems.map(({ id, path, label }) => {
                 const isActive = path === selectedTab;
                 return (
-                  <Link key={id} href={path}>
+                  <Link key={id} href={path} className="flex">
                     <motion.button
                       data-active={isActive}
                       onClick={() => {
@@ -70,9 +70,14 @@ export default function MobileNav() {
                       initial={"initial"}
                       animate="enter"
                       exit="exit"
-                      className="text-4xl text-slate-400/80"
+                      className={cn(
+                        "px-4 text-4xl text-slate-400/80 transition-colors duration-1000 ease-in-out hover:text-slate-200/80",
+                        path === selectedTab
+                          ? "cursor-default text-slate-200/80"
+                          : "",
+                      )}
                     >
-                      {label}
+                      <span>{label}</span>
                     </motion.button>
                   </Link>
                 );
@@ -80,13 +85,13 @@ export default function MobileNav() {
             </motion.div>
             <motion.div className="h-px w-[95%] bg-slate-500/20" />
             <motion.div
-              // variants={slide}
+              variants={slide}
               initial="initial"
               animate="enter"
               exit="exit"
             >
               <motion.ul
-                // variants={slide}
+                variants={slide}
                 initial="initial"
                 animate="enter"
                 exit="exit"

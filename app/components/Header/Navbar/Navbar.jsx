@@ -2,13 +2,13 @@
 import React from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import { mobileNavItems } from "../../../lib/mobileNavItems";
 import { cn } from "../../../lib/utils";
 import { useNavContext } from "../../../contexts/NavContext";
 
 export default function Navbar() {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   const { selectedTab, setSelectedTab } = useNavContext();
   const [focused, setFocused] = React.useState(null);
 
