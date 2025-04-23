@@ -74,7 +74,7 @@ export default function MobileNav({ focused, setFocused }) {
                     {focused === path ? (
                       <motion.div
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, transition: { duration: 0.25 } }}
+                        animate={{ opacity: 1, transition: { duration: 1 } }}
                         exit={{
                           opacity: 0,
                           transition: {
@@ -93,7 +93,12 @@ export default function MobileNav({ focused, setFocused }) {
                             stiffness: 500,
                           },
                         }}
-                        className="absolute left-[-5px] top-[5px] block h-full w-2 rounded-md border bg-slate-400/75"
+                        className={cn(
+                          focused
+                            ? "absolute left-[-5px] top-[5px] block h-full w-2 rounded-md bg-slate-400/75 hover:border"
+                            : "",
+                          !focused ? "hidden" : "",
+                        )}
                         layoutId="marker"
                       />
                     ) : null}
@@ -104,6 +109,10 @@ export default function MobileNav({ focused, setFocused }) {
                           setSelectedTab(path);
                           toggleMobileNavbar();
                         }}
+                        onFocus={() => setFocused(path)}
+                        onBlur={() => setFocused(null)}
+                        onPointerEnter={() => setFocused(path)}
+                        tabIndex={0}
                         variants={slide}
                         initial={"initial"}
                         animate="enter"
