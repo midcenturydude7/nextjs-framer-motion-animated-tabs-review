@@ -2,15 +2,15 @@
 import React from "react";
 import Link from "next/link";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import { cn } from "../../../lib/utils";
 import { mobileNavItems } from "../../../lib/mobileNavItems";
 import { useNavContext } from "../../../contexts/NavContext";
 import { menuSlide, slide } from "../../../lib/anim";
 import Curve from "./Curve/Curve";
 
-export default function MobileNav() {
-  const pathname = usePathname();
+export default function MobileNav({ focused, setFocused }) {
+  // const pathname = usePathname();
   const { selectedTab, setSelectedTab } = useNavContext();
   const [mobileNavbar, toggleMobileNavbar] = useCycle(false, true);
 
@@ -59,27 +59,66 @@ export default function MobileNav() {
               {mobileNavItems.map(({ id, path, label }) => {
                 const isActive = path === selectedTab;
                 return (
-                  <Link key={id} href={path} className="flex">
-                    <motion.button
-                      data-active={isActive}
-                      onClick={() => {
-                        setSelectedTab(path);
-                        toggleMobileNavbar();
-                      }}
+                  <div className="relative flex items-center">
+                    <motion.div
                       variants={slide}
                       initial={"initial"}
                       animate="enter"
                       exit="exit"
                       className={cn(
-                        "px-4 text-4xl text-slate-400/80 transition-colors duration-1000 ease-in-out hover:text-slate-200/80",
                         path === selectedTab
-                          ? "cursor-default text-slate-200/80"
+                          ? "absolute left-[-5px] top-[5px] block h-full w-2 rounded-md border bg-slate-400/75"
                           : "",
                       )}
-                    >
-                      <span>{label}</span>
-                    </motion.button>
-                  </Link>
+                    />
+                    {focused === path ? (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, transition: { duration: 0.25 } }}
+                        exit={{
+                          opacity: 0,
+                          transition: {
+                            duration: 1,
+                            ease: "easeOut",
+                          },
+                        }}
+                        transition={{
+                          layout: {
+                            duration: 0.25,
+                            ease: "easeOut",
+                            type: "spring",
+                            bounce: 0,
+                            damping: 50,
+                            mass: 0.5,
+                            stiffness: 500,
+                          },
+                        }}
+                        className="absolute left-[-5px] top-[5px] block h-full w-2 rounded-md border bg-slate-400/75"
+                        layoutId="marker"
+                      />
+                    ) : null}
+                    <Link key={id} href={path} className="">
+                      <motion.button
+                        data-active={isActive}
+                        onClick={() => {
+                          setSelectedTab(path);
+                          toggleMobileNavbar();
+                        }}
+                        variants={slide}
+                        initial={"initial"}
+                        animate="enter"
+                        exit="exit"
+                        className={cn(
+                          "px-4 text-4xl text-slate-400/80 transition-colors duration-1000 ease-in-out hover:text-slate-200/80",
+                          path === selectedTab
+                            ? "cursor-default text-slate-200/80"
+                            : "",
+                        )}
+                      >
+                        <span>{label}</span>
+                      </motion.button>
+                    </Link>
+                  </div>
                 );
               })}
             </motion.div>

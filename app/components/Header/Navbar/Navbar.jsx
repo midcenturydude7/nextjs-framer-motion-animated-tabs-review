@@ -7,10 +7,9 @@ import { mobileNavItems } from "../../../lib/mobileNavItems";
 import { cn } from "../../../lib/utils";
 import { useNavContext } from "../../../contexts/NavContext";
 
-export default function Navbar() {
+export default function Navbar({ focused, setFocused }) {
   // const pathname = usePathname();
   const { selectedTab, setSelectedTab } = useNavContext();
-  const [focused, setFocused] = React.useState(null);
 
   return (
     <nav
