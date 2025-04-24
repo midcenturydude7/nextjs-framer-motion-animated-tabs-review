@@ -102,6 +102,34 @@ export default function MobileNav({ focused, setFocused }) {
                         layoutId="marker"
                       />
                     ) : null}
+                    {!focused && selectedTab === path ? (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{
+                          opacity: 0,
+                          transition: {
+                            duration: 1,
+                            ease: "easeOut",
+                          },
+                        }}
+                        transition={{
+                          layout: {
+                            duration: 0.25,
+                            ease: "easeOut",
+                            type: "spring",
+                            bounce: 0,
+                            damping: 50,
+                            mass: 0.5,
+                            stiffness: 500,
+                          },
+                        }}
+                        layoutId="marker"
+                        className={cn(
+                          "hover: absolute left-[-5px] top-[5px] block h-full w-2 rounded-md bg-slate-400/75",
+                        )}
+                      />
+                    ) : null}
                     <Link key={id} href={path} className="">
                       <motion.button
                         data-active={isActive}
@@ -112,7 +140,6 @@ export default function MobileNav({ focused, setFocused }) {
                         onFocus={() => setFocused(label)}
                         onBlur={() => setFocused(null)}
                         onPointerEnter={() => setFocused(label)}
-                        // onPointerLeave={() => setFocused(null)}
                         tabIndex={0}
                         variants={slide}
                         initial={"initial"}
