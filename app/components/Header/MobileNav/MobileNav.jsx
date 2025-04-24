@@ -55,26 +55,29 @@ export default function MobileNav({ focused, setFocused }) {
             exit="exit"
             className="fixed inset-0 flex h-full flex-col items-center justify-center gap-10 bg-gradient-to-b from-[rgba(12,12,39,1)] to-[rgb(0,2,8)]"
           >
-            <motion.div className="flex flex-col space-y-6">
+            <motion.div
+              onPointerLeave={() => setFocused(null)}
+              className="flex flex-col space-y-6"
+            >
               {mobileNavItems.map(({ id, path, label }) => {
                 const isActive = path === selectedTab;
                 return (
-                  <div className="relative flex items-center">
+                  <div className="relative flex items-center" key={id}>
                     <motion.div
                       variants={slide}
                       initial={"initial"}
                       animate="enter"
                       exit="exit"
                       className={cn(
-                        path === selectedTab
+                        selectedTab === path
                           ? "absolute left-[-5px] top-[5px] block h-full w-2 rounded-md border bg-slate-400/75"
                           : "",
                       )}
                     />
-                    {focused === path ? (
+                    {focused === label ? (
                       <motion.div
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, transition: { duration: 1 } }}
+                        animate={{ opacity: 1, transition: { duration: 0.2 } }}
                         exit={{
                           opacity: 0,
                           transition: {
@@ -94,10 +97,7 @@ export default function MobileNav({ focused, setFocused }) {
                           },
                         }}
                         className={cn(
-                          focused
-                            ? "absolute left-[-5px] top-[5px] block h-full w-2 rounded-md bg-slate-400/75 hover:border"
-                            : "",
-                          !focused ? "hidden" : "",
+                          "absolute left-[-5px] top-[5px] block h-full w-2 rounded-md bg-slate-400/75 hover:border",
                         )}
                         layoutId="marker"
                       />
@@ -109,9 +109,10 @@ export default function MobileNav({ focused, setFocused }) {
                           setSelectedTab(path);
                           toggleMobileNavbar();
                         }}
-                        onFocus={() => setFocused(path)}
+                        onFocus={() => setFocused(label)}
                         onBlur={() => setFocused(null)}
-                        onPointerEnter={() => setFocused(path)}
+                        onPointerEnter={() => setFocused(label)}
+                        // onPointerLeave={() => setFocused(null)}
                         tabIndex={0}
                         variants={slide}
                         initial={"initial"}
