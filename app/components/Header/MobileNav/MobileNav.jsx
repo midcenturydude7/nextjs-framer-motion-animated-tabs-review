@@ -55,14 +55,22 @@ export default function MobileNav({ focused, setFocused }) {
             exit="exit"
             className="fixed inset-0 flex h-full flex-col items-center justify-center gap-10 bg-gradient-to-b from-[rgba(12,12,39,1)] to-[rgb(0,2,8)]"
           >
-            <motion.div
+            <motion.ul
               onPointerLeave={() => setFocused(null)}
-              className="flex flex-col space-y-6"
+              className="flex flex-col justify-center"
             >
               {mobileNavItems.map(({ id, path, label }) => {
                 const isActive = path === selectedTab;
                 return (
-                  <div className="relative flex items-center" key={id}>
+                  <li
+                    className={cn(
+                      "relative flex space-y-1 border border-x-0 border-b-slate-400/10 border-t-transparent pb-4 pt-[0.5px] last:border-none",
+                      selectedTab === path
+                        ? "bg-gradient-to-r from-[#111329a3] to-transparent"
+                        : "",
+                    )}
+                    key={id}
+                  >
                     <motion.div
                       variants={slide}
                       initial={"initial"}
@@ -70,7 +78,7 @@ export default function MobileNav({ focused, setFocused }) {
                       exit="exit"
                       className={cn(
                         selectedTab === path
-                          ? "absolute left-[-5px] top-[5px] block h-full w-2 rounded-md border bg-slate-400/75"
+                          ? "absolute left-[-5px] top-0 z-[2] block h-full w-2 border border-[#00b7ff] bg-slate-400/75"
                           : "",
                       )}
                     />
@@ -97,7 +105,7 @@ export default function MobileNav({ focused, setFocused }) {
                           },
                         }}
                         className={cn(
-                          "absolute left-[-5px] top-[5px] block h-full w-2 rounded-md bg-slate-400/75 hover:border",
+                          "absolute left-[-5px] top-[-4px] z-[1] block h-full w-2 bg-slate-400/75 hover:border",
                         )}
                         layoutId="marker"
                       />
@@ -126,7 +134,7 @@ export default function MobileNav({ focused, setFocused }) {
                         }}
                         layoutId="marker"
                         className={cn(
-                          "hover: absolute left-[-5px] top-[5px] block h-full w-2 rounded-md bg-slate-400/75",
+                          "absolute left-[-5px] top-[-4px] z-[1] block h-full w-2 bg-slate-400/75",
                         )}
                       />
                     ) : null}
@@ -155,10 +163,10 @@ export default function MobileNav({ focused, setFocused }) {
                         <span>{label}</span>
                       </motion.button>
                     </Link>
-                  </div>
+                  </li>
                 );
               })}
-            </motion.div>
+            </motion.ul>
             <motion.div className="h-px w-[95%] bg-slate-500/20" />
             <motion.div
               variants={slide}
