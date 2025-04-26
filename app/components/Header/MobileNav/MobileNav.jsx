@@ -129,7 +129,7 @@ export default function MobileNav({ focused, setFocused }) {
                             bounce: 0,
                             damping: 50,
                             mass: 0.5,
-                            stiffness: 500,
+                            stiffness: 400,
                           },
                         }}
                         layoutId="marker"
