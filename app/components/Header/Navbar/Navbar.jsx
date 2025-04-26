@@ -61,15 +61,15 @@ export default function Navbar({ focused, setFocused }) {
                     {/* 'FOLLOW' HIGHLIGHT: Animates when the button is focused and follows cursor */}
                     {focused === path ? (
                       <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, transition: { duration: 0.25 } }}
-                        exit={{
-                          opacity: 0,
-                          transition: {
-                            duration: 1,
-                            ease: "easeOut",
-                          },
-                        }}
+                        // initial={{ opacity: 0 }}
+                        // animate={{ opacity: 1, transition: { duration: 0.25 } }}
+                        // exit={{
+                        //   opacity: 0,
+                        //   transition: {
+                        //     duration: 1,
+                        //     ease: "easeOut",
+                        //   },
+                        // }}
                         transition={{
                           layout: {
                             duration: 0.25,
@@ -110,15 +110,15 @@ export default function Navbar({ focused, setFocused }) {
                     {/* "BOOMERANG" HIGHLIGHT: If new path isn't selected, highlight returns to selected path */}
                     {!focused && selectedTab === path ? (
                       <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{
-                          opacity: 0,
-                          transition: {
-                            duration: 1,
-                            ease: "easeOut",
-                          },
-                        }}
+                        // initial={{ opacity: 0 }}
+                        // animate={{ opacity: 1 }}
+                        // exit={{
+                        //   opacity: 0,
+                        //   transition: {
+                        //     duration: 1,
+                        //     ease: "easeOut",
+                        //   },
+                        // }}
                         transition={{
                           layout: {
                             duration: 0.25,
