@@ -78,7 +78,7 @@ export default function MobileNav({ focused, setFocused }) {
                       exit="exit"
                       className={cn(
                         selectedTab === path
-                          ? "absolute left-[-5px] top-0 z-[2] block h-full w-2 border border-[#00b7ff] bg-slate-400/75"
+                          ? "absolute left-[-5px] top-0 z-[2] block h-full w-2 border border-[#00b7ff] bg-cyan-200/50"
                           : "",
                       )}
                     />
@@ -105,7 +105,7 @@ export default function MobileNav({ focused, setFocused }) {
                           },
                         }}
                         className={cn(
-                          "absolute left-[-5px] top-[-4px] z-[1] block h-full w-2 bg-slate-400/75 hover:border",
+                          "absolute left-[-5px] top-[-4px] z-[1] block h-full w-2 bg-slate-200/75 hover:border",
                         )}
                         layoutId="marker"
                       />
@@ -134,7 +134,7 @@ export default function MobileNav({ focused, setFocused }) {
                         }}
                         layoutId="marker"
                         className={cn(
-                          "absolute left-[-5px] top-[-4px] z-[1] block h-full w-2 bg-slate-400/75",
+                          "absolute left-[-5px] top-[-4px] z-[1] block h-full w-2 bg-slate-200/75",
                         )}
                       />
                     ) : null}
