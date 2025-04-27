@@ -84,15 +84,6 @@ export default function MobileNav({ focused, setFocused }) {
                     />
                     {focused === label ? (
                       <motion.div
-                        // initial={{ opacity: 0 }}
-                        // animate={{ opacity: 1, transition: { duration: 0.2 } }}
-                        // exit={{
-                        //   opacity: 0,
-                        //   transition: {
-                        //     duration: 1,
-                        //     ease: "easeOut",
-                        //   },
-                        // }}
                         transition={{
                           layout: {
                             duration: 0.25,
@@ -112,15 +103,6 @@ export default function MobileNav({ focused, setFocused }) {
                     ) : null}
                     {!focused && selectedTab === path ? (
                       <motion.div
-                        // initial={{ opacity: 0 }}
-                        // animate={{ opacity: 1 }}
-                        // exit={{
-                        //   opacity: 0,
-                        //   transition: {
-                        //     duration: 1,
-                        //     ease: "easeOut",
-                        //   },
-                        // }}
                         transition={{
                           layout: {
                             duration: 0.25,

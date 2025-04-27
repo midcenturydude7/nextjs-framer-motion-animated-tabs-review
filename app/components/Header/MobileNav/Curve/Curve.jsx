@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-// import { curve } from "../../../../lib/anim";
 
 export default function Curve() {
   const strokeColor = "#00b7ff";
