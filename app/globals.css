@@ -190,6 +190,13 @@
     z-index: 0;
     transition: opacity 1s ease-in-out;
   }
+
+  .set {
+    background-image: url(../app/assets/01_background.svg);
+    background-size: cover;
+    /* background-position: left center; */
+    background-repeat: no-repeat;
+  }
 }
 
 :root {
