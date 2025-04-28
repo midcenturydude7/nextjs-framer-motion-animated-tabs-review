@@ -18,7 +18,7 @@ export default function Navbar({ focused, setFocused }) {
     >
       <ul
         onPointerLeave={() => setFocused(null)}
-        className="nav-wrapper space-x-4 border-slate-300/10 bg-gradient-to-b from-[rgba(21,24,43,0.79)] to-[rgba(0,0,0,0.87)] py-[0.5rem] pl-6 pr-[1.8rem]"
+        className="nav-wrapper space-x-4 border-slate-300/10 bg-gradient-to-b from-[rgba(21,24,43,0.75)] to-[rgba(0,0,0,0.17)] py-[0.5rem] pl-6 pr-[1.8rem]"
       >
         {mobileNavItems.map(({ path, label, id }) => {
           return (
