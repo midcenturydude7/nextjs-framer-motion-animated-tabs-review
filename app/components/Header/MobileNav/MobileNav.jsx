@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
-// import { usePathname } from "next/navigation";
 import { cn } from "../../../lib/utils";
 import { mobileNavItems } from "../../../lib/mobileNavItems";
 import { useNavContext } from "../../../contexts/NavContext";
@@ -10,7 +9,6 @@ import { menuSlide, slide } from "../../../lib/anim";
 import Curve from "./Curve/Curve";
 
 export default function MobileNav({ focused, setFocused }) {
-  // const pathname = usePathname();
   const { selectedTab, setSelectedTab } = useNavContext();
   const [mobileNavbar, toggleMobileNavbar] = useCycle(false, true);
 
