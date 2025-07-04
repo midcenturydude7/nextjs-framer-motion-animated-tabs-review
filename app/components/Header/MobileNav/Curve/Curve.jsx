@@ -31,7 +31,7 @@ export default function Curve() {
     <svg className="absolute -left-[99px] top-0 h-full w-[100px]">
       <defs>
         <linearGradient id="curveGradient" gradientTransform="rotate(90)">
-          <stop offset="0%" stopColor="rgb(12, 12, 39)" />
+          <stop offset="0%" stopColor="rgba(12, 12, 39)" />
           <stop offset="100%" stopColor="rgb(0,2,8)" />
         </linearGradient>
       </defs>
